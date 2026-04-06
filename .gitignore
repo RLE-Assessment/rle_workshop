@@ -1,0 +1,7 @@
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+
+# Quarto render output
+presentation.html
+presentation_files/

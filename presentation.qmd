@@ -1,0 +1,121 @@
+---
+title: "RLE Assessment Workshop"
+subtitle: "Tools for Red List of Ecosystems Assessments"
+author:
+  - name: "Tyler Erickson"
+  - name: "Tanya Birch"
+date: "2026-04-15"
+format:
+  revealjs:
+    theme: default
+    slide-number: true
+    navigation-mode: vertical
+    footer: "RLE Assessment Workshop"
+---
+
+## Welcome
+
+This workshop introduces a set of tools to facilitate conducting **Red List of Ecosystems (RLE)** assessments.
+
+::: {.incremental}
+- What is the RLE?
+- Available tools and data
+- Hands-on examples
+:::
+
+<!-- ## What is the RLE?
+
+The IUCN Red List of Ecosystems is a global standard for assessing the conservation status of ecosystems.
+
+. . .
+
+It evaluates ecosystems against five criteria:
+
+::: {.incremental}
+1. Decline in distribution
+2. Restricted distribution
+3. Environmental degradation
+4. Disruption of biotic processes
+5. Quantitative risk analysis
+::: -->
+
+<!-- ## Assessment Categories
+
+| Category | Abbreviation |
+|----------|:------------:|
+| Collapsed | CO |
+| Critically Endangered | CR |
+| Endangered | EN |
+| Vulnerable | VU |
+| Near Threatened | NT |
+| Least Concern | LC | -->
+
+# Getting Started
+
+## Prerequisites
+
+1. A [Google Cloud Project (GCP)](https://console.cloud.google.com) account
+2. A [GitHub](https://github.com/) account
+3. A development environment with tools installed:
+    - [uv](https://docs.astral.sh/uv/) package/environment manager
+    - [Google Cloud CLI (`gcloud`)](https://cloud.google.com/sdk/docs/install) command-line tool
+    - [GitHub CLI (`gh`)](https://cli.github.com) command-line tool
+
+## Development Environment Options
+
+| Option | Pros | Cons |
+|--------|--------|--------|
+| Google Cloud Shell | Uniform development environment for all users | Limited storage |
+| Local computer | A local development environment | Requires personalized setup |
+
+# Tools
+
+***TODO: Show overview diagram of tools and data flow.***
+
+## Tools Overview
+
+- `iucn-get-data` — [Global Ecosystem Typology (GET) data](https://global-ecosystems.org/)
+- `rle-python-gee` — Python tools for GEE-based assessments
+    - Based on [IUCN RLE Publications](https://iucnrle.org/documents_and_publications)
+
+## iucn-get-data
+
+
+## Example: Topology class {.smaller}
+
+```{python}
+#| echo: true
+from iucn_get_data import Typology
+from pprint import pprint
+
+typology = Typology(language='spanish')
+print(typology)
+```
+
+## Example: Display biomes in a realm {.smaller}
+
+```{python}
+#| echo: true
+[f'{b.code}: {b.name}' for b in typology.realms['T'].biomes.values()]
+```
+
+
+# Technical walkthrough
+
+# Demo Example
+
+# Colombia Example
+
+# Next Steps
+
+::: {.callout-tip}
+## Resources
+- [IUCN RLE Website](https://iucnrle.org/)
+- [RLE Assessment GitHub](https://github.com/RLE-Assessment)
+:::
+
+. . .
+
+**Thank you!**
+
+Questions?
