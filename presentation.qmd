@@ -13,6 +13,12 @@ format:
     footer: "RLE Assessment Workshop"
 ---
 
+```{=html}
+<style>
+[data-class-output="small-output"] .cell-output table { font-size: 0.5em; }
+</style>
+```
+
 ## Welcome
 
 This workshop introduces a set of tools to facilitate conducting **Red List of Ecosystems (RLE)** assessments.
@@ -92,12 +98,51 @@ typology = Typology(language='spanish')
 print(typology)
 ```
 
+## Example: Colombia example {.smaller .scrollable}
+
+```{python}
+#| echo: false
+from pathlib import Path
+import urllib.request
+
+data_path = Path('data/colombia_ecosystems.shp.zip')
+if not data_path.exists():
+    data_path.parent.mkdir(parents=True, exist_ok=True)
+    urllib.request.urlretrieve(
+        'https://storage.googleapis.com/rle_test_data/colombia_ecosystems.shp.zip',
+        data_path
+    )
+```
+
+```{python}
+#| echo: true
+#| class-output: small-output
+import geopandas as gpd
+
+df = gpd.read_file(data_path)
+df.head(3)
+```
+
+## Example: Colombia example {.smaller}
+
+```{python}
+#| echo: true
+typology = Typology(language='spanish',
+                    ecosystems=df, 
+                    ecosystems_functional_group_column='EFG1', ecosystems_column='ECO_CODE',
+                    ecosystem_name_column='Glob_Typol')
+print(typology)
+```
+
+
 ## Example: Display biomes in a realm {.smaller}
 
 ```{python}
 #| echo: true
 [f'{b.code}: {b.name}' for b in typology.realms['T'].biomes.values()]
 ```
+
+
 
 
 # Technical walkthrough
