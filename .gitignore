@@ -5,3 +5,6 @@
 # Quarto render output
 presentation.html
 presentation_files/
+
+# Example data
+data/colombia_ecosystems.shp.zip
