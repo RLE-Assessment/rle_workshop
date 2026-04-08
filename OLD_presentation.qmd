@@ -5,6 +5,7 @@ author:
   - name: "Tyler Erickson"
   - name: "Tanya Birch"
 date: "2026-04-15"
+jupyter: python3
 format:
   revealjs:
     theme: default
@@ -13,13 +14,22 @@ format:
     footer: "RLE Assessment Workshop"
 ---
 
-```{=html}
-<style>
-[data-class-output="small-output"] .cell-output table { font-size: 0.5em; }
-</style>
+## Test
+
+```{python}
+#| echo: true
+#| output-location: column
+import iucn_get_data
+print(f'{iucn_get_data.__file__ = }')
 ```
 
 ## Welcome
+
+```{=html}
+<style>
+[data-class-output="small-output"] .cell-output table { font-size: 0.4em; }
+</style>
+```
 
 This workshop introduces a set of tools to facilitate conducting **Red List of Ecosystems (RLE)** assessments.
 
@@ -84,8 +94,7 @@ It evaluates ecosystems against five criteria:
 - `rle-python-gee` — Python tools for GEE-based assessments
     - Based on [IUCN RLE Publications](https://iucnrle.org/documents_and_publications)
 
-## iucn-get-data
-
+# IUCN Global Ecosystem Typology (repo: `iucn-get-data`)
 
 ## Example: Topology class {.smaller}
 
@@ -142,7 +151,92 @@ print(typology)
 [f'{b.code}: {b.name}' for b in typology.realms['T'].biomes.values()]
 ```
 
+# Python Package for RLE Calculations (repo: `rle-python-gee`)
 
+## Example
+
+```{python}
+#| echo: true
+#| class-output: small-output
+from rle_python_gee.ecosystems import Ecosystems
+
+ecosystems = Ecosystems.from_file(
+    data_path,
+    ecosystem_column='ECO_CODE'
+)
+ecosystems.head(3)
+```
+
+
+## Example
+
+```{python}
+#| echo: true
+#| class-output: small-output
+ecosystems.unique_ecosystems()
+```
+
+
+## Select a single ecosystem {.smaller}
+
+```{python}
+#| echo: true
+#| output-location: column
+
+F1.1.1
+
+```
+
+
+## Example: Export to Earth Engine FeatureCollection
+
+```{python}
+#| echo: true
+import ee
+import google.auth
+
+credentials, _ = google.auth.default(
+    scopes=['https://www.googleapis.com/auth/earthengine',
+            'https://www.googleapis.com/auth/cloud-platform']
+)
+ee.Initialize(credentials=credentials, project='goog-rle-assessments')
+```
+
+## Example: Export to Earth Engine FeatureCollection
+
+Create an Earth Engine FeatureCollection asset for the ecosystem.
+(This may take 5-20 minutes to complete.)
+
+```{python}
+#| echo: true
+ecosystem_asset_id = 'projects/goog-rle-assessments/assets/temp/ecosystems'
+```
+
+```{python}
+#| echo: true
+#| eval: false
+ee.Initialize(project='goog-rle-assessments')
+task_id = ecosystems.to_ee_feature_collection(
+    ecosystem_asset_id,
+    gcs_bucket='rle_test_bucket_1'
+)
+print(f'{task_id=}')
+```
+
+## Example: Export to Earth Engine FeatureCollection {.smaller}
+
+```{python}
+#| echo: true
+#| output-location: column
+from lonboard import Map
+
+ecosystems_fc = Ecosystems.from_gee_feature_collection(
+    ecosystem_asset_id,
+    ecosystem_column='ECO_NAME'
+)
+
+Map(layers=ecosystems_fc.to_layer())
+```
 
 
 # Technical walkthrough
