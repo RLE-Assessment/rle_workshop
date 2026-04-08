@@ -11,13 +11,27 @@ requires = ["hatchling"]
 
 [tool.pixi.workspace]
 channels = ["conda-forge"]
-platforms = ["osx-arm64"]
+platforms = ["osx-arm64", "linux-64"]
 
 [tool.pixi.pypi-dependencies]
 rle_workshop = { path = ".", editable = true }
+
+[tool.pixi.feature.remote.pypi-dependencies]
+iucn-get-data = { git = "https://github.com/RLE-Assessment/iucn-get-data.git" }
+rle-python-gee = { git = "https://github.com/RLE-Assessment/rle-python-gee.git" }
+
+# Install with local packages: pixi install -e dev-local
+[tool.pixi.feature.dev-local.pypi-dependencies]
+iucn-get-data = { path = "../iucn-get-data", editable = true }
+rle-python-gee = { path = "../rle-python-gee", editable = true }
+
+[tool.pixi.environments]
+default = ["remote"]
+dev-local = ["dev-local"]
 
 [tool.pixi.tasks]
 
 [tool.pixi.dependencies]
 quarto = ">=1.8.27,<2"
 jupyter = ">=1.1.1,<2"
+proj = "*"
