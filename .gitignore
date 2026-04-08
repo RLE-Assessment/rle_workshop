@@ -5,6 +5,9 @@
 # Quarto render output
 presentation.html
 presentation_files/
+*.quarto_ipynb
 
 # Example data
 data/colombia_ecosystems.shp.zip
+
+.DS_Store
