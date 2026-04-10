@@ -3,6 +3,7 @@
 !.pixi/config.toml
 
 # Quarto render output
+*_files/*
 presentation.html
 presentation_files/
 *.quarto_ipynb
