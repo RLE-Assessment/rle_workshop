@@ -15,9 +15,10 @@ platforms = ["osx-arm64", "linux-64"]
 
 [tool.pixi.pypi-dependencies]
 rle_workshop = { path = ".", editable = true }
-# For local development, replace the git URLs below with:
-#   iucn-get-data = { path = "../iucn-get-data", editable = true }
-#   rle-python-gee = { path = "../rle-python-gee", editable = true }
+# # For local development use the editable paths below:
+# iucn-get-data = { path = "../iucn-get-data", editable = true }
+# rle-python-gee = { path = "../rle-python-gee", editable = true }
+# For production use:
 iucn-get-data = { git = "https://github.com/RLE-Assessment/iucn-get-data.git" }
 rle-python-gee = { git = "https://github.com/RLE-Assessment/rle-python-gee.git" }
 
@@ -27,3 +28,4 @@ rle-python-gee = { git = "https://github.com/RLE-Assessment/rle-python-gee.git" 
 quarto = ">=1.8.27,<2"
 jupyter = ">=1.1.1,<2"
 proj = "*"
+graphviz = ">=14.1.2,<15"
