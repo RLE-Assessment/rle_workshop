@@ -4,7 +4,8 @@
 
 # Quarto render output
 *_files/*
-*.html
+/*.html
+
 presentation_files/
 *.quarto_ipynb
 _freeze/
