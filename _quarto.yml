@@ -4,16 +4,23 @@ project:
 
 website:
   title: "RLE Workshop"
+  site-url: "https://rle-assessment.github.io/rle_workshop/"
+  repo-url: "https://github.com/RLE-Assessment/rle_workshop"
+  repo-actions: [edit, source, issue]
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - presentation-1-setup.ipynb
+      - href: presentation-1-setup.ipynb
+        text: 1. Setup
+      - href: presentation-2-workflow-overview.ipynb
+        text: 2. Workflow Overview
+      - href: presentation-3-workflow-ruritania.ipynb
+        text: 3. Ruritania Demo
+      - href: presentation-4-workflow-colombia.ipynb
+        text: 4. Colombia Demo
 
 format:
   html:
     theme: cosmo
-    css: styles.css
-  revealjs:
-    theme: night
     css: styles.css
