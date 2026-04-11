@@ -1,0 +1,19 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "RLE Workshop"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - presentation-1-setup.ipynb
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+  revealjs:
+    theme: night
+    css: styles.css

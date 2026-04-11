@@ -1,0 +1,8 @@
+.reveal { font-size: 32px; }   /* default is 40px */
+
+.reveal h2 {
+    font-size: 1.4em;
+    margin-bottom: 0.6em;   /* space between title and content */
+    padding-bottom: 0.2em;
+    line-height: 1.1;
+  }
