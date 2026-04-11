@@ -5,4 +5,54 @@
     margin-bottom: 0.6em;   /* space between title and content */
     padding-bottom: 0.2em;
     line-height: 1.1;
+}
+
+.reveal .cell .cell-output {
+    margin-top: 0.5em;
+    margin-bottom: 1.0em;
+}
+
+.reveal .cell-output table {
+    font-size: 0.6em;
   }
+  
+.reveal .cell-output table th,
+.reveal .cell-output table td {
+    padding: 0.15em 0.4em;
+    line-height: 1.2;
+}
+
+/* Quarto wraps executable code in <div class="sourceCode"> with a <pre> inside */
+.reveal div.sourceCode {
+    background-color: #2b2f3a;
+    border-radius: 6px;
+    padding: 0.6em 0.8em;
+    margin-bottom: 0.4em;
+  }
+  
+  .reveal div.sourceCode pre {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+  }
+
+
+/* .reveal .cell-output-display:has(table) {
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+  
+.reveal .cell-output-display table thead th {
+    position: sticky;
+    top: 0;
+    background: var(--r-background-color, #1c1e26);
+    z-index: 1;
+} */
+  
+.reveal .scrollbox {
+    max-height: 65vh;   /* tune: 60vh–75vh */
+    overflow-y: auto;
+    overflow-x: auto;   /* optional, for wide tables */
+    text-align: left;
+    padding-right: 0.5em; /* room for scrollbar */
+}
