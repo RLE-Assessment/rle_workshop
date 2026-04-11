@@ -4,11 +4,16 @@
 
 # Quarto render output
 *_files/*
-presentation.html
+*.html
 presentation_files/
 *.quarto_ipynb
+_freeze/
+_site/
 
 # Example data
 data/colombia_ecosystems.shp.zip
 
 .DS_Store
+
+/.quarto/
+**/*.quarto_ipynb
