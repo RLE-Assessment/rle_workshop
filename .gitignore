@@ -12,7 +12,7 @@ _freeze/
 _site/
 
 # Example data
-data/colombia_ecosystems.shp.zip
+data/*
 
 .DS_Store
 
