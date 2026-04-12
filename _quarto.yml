@@ -21,6 +21,12 @@ website:
         text: 4. Colombia Demo
 
 format:
+  revealjs:
+    theme: night
+    css: styles.css
+    slide-number: true
+    navigation-mode: vertical
+    code-annotations: hover
   html:
     theme: cosmo
     css: styles.css
