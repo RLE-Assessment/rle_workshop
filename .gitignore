@@ -10,6 +10,7 @@ presentation_files/
 *.quarto_ipynb
 _freeze/
 _site/
+site_libs/
 
 # Example data
 data/*
