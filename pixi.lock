@@ -3102,8 +3102,8 @@ packages:
   timestamp: 1733493720346
 - pypi: ../iucn-get-data
   name: iucn-get-data
-  version: 0.0.8
-  sha256: 86de81ccf798894de22908b3abfd09f17aebeaacbc9cab85988268ba2db7cafb
+  version: 0.0.9
+  sha256: ac2820d56d526cad24c61f8b714eee83636c6ead3883157da23cb70bf28631ce
   requires_dist:
   - earthengine-api>=1.7.16
   - ipykernel>=7.1.0
@@ -6112,8 +6112,8 @@ packages:
   requires_python: '>=3.8.0'
 - pypi: ../rle-python-gee
   name: rle-python-gee
-  version: 0.1.15
-  sha256: 0053ee8288880231f231414159543654ccf72672ec36c408e6419422f73f37e6
+  version: 0.1.18
+  sha256: 39d73145fcacb073fd556a8b4dcbb29c84d50f3984a32b76a41f2d5629017dac
   requires_dist:
   - cartopy>=0.24.0
   - earthengine-api>=1.6.14
