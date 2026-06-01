@@ -22,7 +22,7 @@ rle-python-gee = { path = "../rle-python-gee", editable = true }
 # For production use:
 # iucn-get-data = { git = "https://github.com/RLE-Assessment/iucn-get-data.git" }
 # rle-python = { git = "https://github.com/RLE-Assessment/rle-python.git", tag = "v0.2.0", extras = ["viz"] }
-# rle-python-gee = { git = "https://github.com/RLE-Assessment/rle-python-gee.git", tag = "v0.2.0" }
+# rle-python-gee = { git = "https://github.com/RLE-Assessment/rle-python-gee.git", tag = "v0.2.1" }
 
 [tool.pixi.tasks]
 
