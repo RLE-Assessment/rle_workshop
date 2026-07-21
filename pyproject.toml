@@ -34,3 +34,8 @@ jupyter = ">=1.1.1,<2"
 anthropic = ">=0.40"
 proj = "*"
 graphviz = ">=14.1.2,<15"
+# rasterio is a transitive dep of rle-python. Pull it from conda-forge (GDAL
+# bundled) so pixi never falls back to compiling the PyPI sdist, which needs a
+# system GDAL that isn't present. This satisfies the pypi `rasterio>=1.3.0`
+# requirement via conda hash-mapping.
+rasterio = ">=1.3.0"
