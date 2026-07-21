@@ -13,29 +13,29 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: presentation-data-preparation.ipynb
-        text: 0. Data Preparation
-      - href: presentation-1-setup.ipynb
-        text: 1. Setup
-      - href: presentation-2-workflow-overview.ipynb
-        text: 2. Workflow Overview
-      - href: presentation-3-workflow-ruritania.ipynb
-        text: 3. Ruritania Demo
-      - href: presentation-4-workflow-colombia.ipynb
-        text: 4. Colombia Demo
+      - href: presentation-1-workflow-overview.ipynb
+        text: 1. Workflow Overview
+      - href: presentation-2-setup.ipynb
+        text: 2. Setup
+      - href: presentation-3-data-preparation.ipynb
+        text: 3. Data Preparation
+      - href: presentation-4-workflow-ruritania.ipynb
+        text: 4. Workflow Demo - Ruritania
+      - href: presentation-5-workflow-colombia.ipynb
+        text: 5. Workflow Demo - Colombia
     right:
       - text: "🌐 Español"
         menu:
-          - href: presentation-data-preparation-es.ipynb
-            text: "0. Preparación de datos"
-          - href: presentation-1-setup-es.ipynb
-            text: "1. Configuración"
-          - href: presentation-2-workflow-overview-es.ipynb
-            text: "2. Descripción del flujo de trabajo"
-          - href: presentation-3-workflow-ruritania-es.ipynb
-            text: "3. Demostración de Ruritania"
-          - href: presentation-4-workflow-colombia-es.ipynb
-            text: "4. Demostración de Colombia"
+          - href: presentation-1-workflow-overview-es.ipynb
+            text: "1. Descripción del flujo de trabajo"
+          - href: presentation-2-setup-es.ipynb
+            text: "2. Configuración"
+          - href: presentation-3-data-preparation-es.ipynb
+            text: "3. Preparación de datos"
+          - href: presentation-4-workflow-ruritania-es.ipynb
+            text: "4. Demostración de Ruritania"
+          - href: presentation-5-workflow-colombia-es.ipynb
+            text: "5. Demostración de Colombia"
 
 # Default document language (English). The generated Spanish decks set `lang: es`
 # in their own frontmatter, which overrides this for those files.

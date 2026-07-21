@@ -29,7 +29,7 @@ Spanish as the approved translation of the current English) and clears the flag.
 Usage::
 
     pixi run python src/translate_notebooks.py                 # all decks
-    pixi run python src/translate_notebooks.py --only presentation-data-preparation.ipynb
+    pixi run python src/translate_notebooks.py --only presentation-3-data-preparation.ipynb
     pixi run python src/translate_notebooks.py --accept-reviewed
 """
 
@@ -54,11 +54,11 @@ MODEL = "claude-sonnet-5"
 REPO = Path(__file__).resolve().parent.parent
 
 DECKS = [
-    "presentation-1-setup.ipynb",
-    "presentation-2-workflow-overview.ipynb",
-    "presentation-3-workflow-ruritania.ipynb",
-    "presentation-4-workflow-colombia.ipynb",
-    "presentation-data-preparation.ipynb",
+    "presentation-1-workflow-overview.ipynb",
+    "presentation-2-setup.ipynb",
+    "presentation-3-data-preparation.ipynb",
+    "presentation-4-workflow-ruritania.ipynb",
+    "presentation-5-workflow-colombia.ipynb",
 ]
 
 SYSTEM_PROSE = """You are a professional translator localizing reveal.js slide decks for a \
