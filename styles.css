@@ -37,18 +37,42 @@
   }
 
 
+/* --- Code-cell OUTPUT styling ------------------------------------------
+   Make executed-cell output read as a distinct "result" block, set apart
+   from prose and from the input-code box (#2b2f3a above). Scoped to text
+   output and DataFrame tables; plots, maps and images are left untouched so
+   no panel appears behind transparent visuals.
+   NOTE: :has() requires a current browser (Safari 15.4+/Chrome 105+); fine
+   for `quarto preview` and GitHub Pages. */
+
+.reveal .cell-output-stdout,
+.reveal .cell-output-display:has(table) {
+    background-color: rgba(255, 255, 255, 0.045);
+    border-left: 4px solid #4fb5a3;   /* teal accent bar */
+    border-radius: 0 6px 6px 0;
+    padding: 0.5em 0.8em;
+    text-align: left;                 /* left-align results for readability */
+}
+
+/* Panel provides the tint; keep the inner pre/code transparent, monospace. */
+.reveal .cell-output-stdout pre,
+.reveal .cell-output-stdout code {
+    background-color: transparent;
+    margin: 0;
+}
+
 /* .reveal .cell-output-display:has(table) {
     max-height: 50vh;
     overflow-y: auto;
   }
-  
+
 .reveal .cell-output-display table thead th {
     position: sticky;
     top: 0;
     background: var(--r-background-color, #1c1e26);
     z-index: 1;
 } */
-  
+
 .reveal .scrollbox {
     max-height: 65vh;   /* tune: 60vh–75vh */
     overflow-y: auto;
