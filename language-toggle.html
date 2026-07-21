@@ -1,0 +1,60 @@
+<!-- In-deck language toggle button (injected into every reveal.js deck via
+     _quarto.yml -> format.revealjs.include-after-body). Computes the counterpart
+     deck from the current filename: presentation-X.html <-> presentation-X-es.html.
+     English and Spanish decks share identical slide structure, so the current
+     slide position (URL hash) is preserved across the toggle. -->
+<style>
+  .lang-toggle {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 60;
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff !important;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+  }
+  .lang-toggle:hover { background: rgba(0, 0, 0, 0.85); }
+  @media print { .lang-toggle { display: none; } }
+</style>
+<script>
+  (function () {
+    var file = window.location.pathname.split("/").pop() || "";
+    if (!/^presentation-.*\.html$/.test(file)) return;
+    var isES = /-es\.html$/.test(file);
+    var counterpart = isES
+      ? file.replace(/-es\.html$/, ".html")
+      : file.replace(/\.html$/, "-es.html");
+    var label = isES ? "English" : "Español";
+
+    var a = document.createElement("a");
+    a.className = "lang-toggle";
+    a.href = counterpart;
+    a.textContent = "🌐 " + label;
+    a.title = "View this presentation in " + label;
+    // Preserve the current slide. The URL hash is slug-based (built from the heading
+    // text), and Spanish headings are translated, so their slugs differ — carrying the
+    // hash across would land on slide 0. Instead read the numeric slide index from the
+    // reveal.js API and pass that; the two decks share identical slide structure, so
+    // the indices line up.
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var hash = window.location.hash;
+      try {
+        if (window.Reveal && typeof Reveal.getIndices === "function") {
+          var idx = Reveal.getIndices();
+          hash = "#/" + idx.h + (idx.v ? "/" + idx.v : "");
+        }
+      } catch (err) {
+        /* fall back to the existing hash */
+      }
+      window.location.href = counterpart + hash;
+    });
+    document.body.appendChild(a);
+  })();
+</script>
