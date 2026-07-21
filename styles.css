@@ -61,6 +61,31 @@
     margin: 0;
 }
 
+/* itables renders interactive DataTables client-side on a light background.
+   Under the dark `night` theme the inherited light text turns unreadable
+   (light-on-white). Force DataTables' native dark-on-white so the tables are
+   legible. The itables table carries a stable id^="itables_" (version-agnostic);
+   .dt-container (DataTables 2.x) / .dataTables_wrapper (older) hold the
+   search/length/info/paginate controls. !important is needed because the
+   DataTables CSS is injected at runtime. */
+.reveal .cell-output-display table[id^="itables_"],
+.reveal .cell-output-display table[id^="itables_"] th,
+.reveal .cell-output-display table[id^="itables_"] td,
+.reveal .cell-output-display table[id^="itables_"] caption,
+.reveal .cell-output-display .dt-container,
+.reveal .cell-output-display .dataTables_wrapper {
+    color: #1c1e26 !important;
+}
+
+/* Form controls don't inherit `color`, so set them explicitly. */
+.reveal .cell-output-display .dt-container input,
+.reveal .cell-output-display .dt-container select,
+.reveal .cell-output-display .dataTables_wrapper input,
+.reveal .cell-output-display .dataTables_wrapper select {
+    color: #1c1e26 !important;
+    background-color: #ffffff !important;
+}
+
 /* .reveal .cell-output-display:has(table) {
     max-height: 50vh;
     overflow-y: auto;
