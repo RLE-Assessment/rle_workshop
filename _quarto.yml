@@ -13,6 +13,8 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: presentation-data-preparation.ipynb
+        text: 0. Data Preparation
       - href: presentation-1-setup.ipynb
         text: 1. Setup
       - href: presentation-2-workflow-overview.ipynb
@@ -21,6 +23,23 @@ website:
         text: 3. Ruritania Demo
       - href: presentation-4-workflow-colombia.ipynb
         text: 4. Colombia Demo
+    right:
+      - text: "🌐 Español"
+        menu:
+          - href: presentation-data-preparation-es.ipynb
+            text: "0. Preparación de datos"
+          - href: presentation-1-setup-es.ipynb
+            text: "1. Configuración"
+          - href: presentation-2-workflow-overview-es.ipynb
+            text: "2. Descripción del flujo de trabajo"
+          - href: presentation-3-workflow-ruritania-es.ipynb
+            text: "3. Demostración de Ruritania"
+          - href: presentation-4-workflow-colombia-es.ipynb
+            text: "4. Demostración de Colombia"
+
+# Default document language (English). The generated Spanish decks set `lang: es`
+# in their own frontmatter, which overrides this for those files.
+lang: en
 
 format:
   revealjs:
@@ -29,6 +48,8 @@ format:
     slide-number: true
     navigation-mode: vertical
     code-annotations: hover
+    # In-deck language toggle button (English <-> Spanish, same slide preserved).
+    include-after-body: language-toggle.html
   html:
     theme: cosmo
     css: styles.css
