@@ -29,5 +29,8 @@ rle-python-gee = { path = "../rle-python-gee", editable = true }
 [tool.pixi.dependencies]
 quarto = ">=1.8.27,<2"
 jupyter = ">=1.1.1,<2"
+# Authoring-time dependency for src/translate_notebooks.py (generates the
+# Spanish -es.ipynb decks via the Claude API). Not needed to render the site.
+anthropic = ">=0.40"
 proj = "*"
 graphviz = ">=14.1.2,<15"
