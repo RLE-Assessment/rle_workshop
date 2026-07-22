@@ -173,6 +173,7 @@ def en_notes_prose(en_text: str) -> str:
     (``:::`` / ``::::``), raw HTML tags, and Pandoc attribute braces — leaving
     headings and prose (inline links/bold kept). Returns "" if nothing remains."""
     t = re.sub(r"```.*?```", "", en_text, flags=re.DOTALL)  # fenced code / html
+    t = re.sub(r"<br\s*/?>", " ", t)  # inline line breaks -> space (avoid mashing text)
     # linked image: [ ![alt](src){attrs?} ]( href ){attrs?}
     t = re.sub(r"\[!\[[^\]]*\]\([^)]*\)(\{[^}]*\})?\]\([^)]*\)(\{[^}]*\})?", "", t)
     t = re.sub(r"!\[[^\]]*\]\([^)]*\)(\{[^}]*\})?", "", t)  # plain image
@@ -196,7 +197,7 @@ def en_notes_prose(en_text: str) -> str:
         lambda m: f"**{m.group(1).strip()}**" if m.group(1) and m.group(1).strip() else "",
         t,
     )
-    t = "\n".join(line.rstrip() for line in t.splitlines())
+    t = "\n".join(re.sub(r" {2,}", " ", line).rstrip() for line in t.splitlines())
     return re.sub(r"\n{3,}", "\n\n", t).strip()
 
 
